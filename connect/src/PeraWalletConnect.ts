@@ -1,5 +1,4 @@
 import WalletConnect from "@walletconnect/client";
-import {formatJsonRpcRequest} from "@json-rpc-tools/utils/dist/cjs/format";
 
 import PeraWalletConnectError from "./util/PeraWalletConnectError";
 import {
@@ -23,6 +22,7 @@ import {
 import {isMobile} from "./util/device/deviceUtils";
 import {AppMeta} from "./util/peraWalletTypes";
 import {getPeraWalletAppMeta} from "./util/peraWalletUtils";
+import {formatJsonRpcRequest} from "@walletconnect/jsonrpc-utils";
 
 interface PeraWalletConnectOptions {
   bridge?: string;

@@ -2,16 +2,14 @@ import {Buffer as $bdjGp$Buffer} from "buffer";
 import $bdjGp$randlabsmyalgoconnect from "@randlabs/myalgo-connect";
 import $bdjGp$walletconnectclient, * as $bdjGp$walletconnectclient1 from "@walletconnect/client";
 import $bdjGp$algorandwalletconnectqrcodemodal from "algorand-walletconnect-qrcode-modal";
-import {formatJsonRpcRequest as $bdjGp$formatJsonRpcRequest} from "@json-rpc-tools/utils";
 import $bdjGp$algosdk, * as $bdjGp$algosdk1 from "algosdk";
 import "regenerator-runtime";
+import {formatJsonRpcRequest as $bdjGp$formatJsonRpcRequest} from "@walletconnect/jsonrpc-utils";
 import $bdjGp$encryptwithpassword from "encrypt-with-password";
 import {saveAs as $bdjGp$saveAs} from "file-saver";
-import {formatJsonRpcRequest as $bdjGp$formatJsonRpcRequest1} from "@json-rpc-tools/utils/dist/cjs/format";
 import * as $bdjGp$react from "react";
 import * as $bdjGp$reactdom from "react-dom";
 import {QRCode as $bdjGp$QRCode} from "react-qrcode-logo";
-
 
 
 
@@ -1276,20 +1274,7 @@ function $70d67bf1bab7f4f3$var$r(e) {
     };
 }
 var $70d67bf1bab7f4f3$var$i = $70d67bf1bab7f4f3$var$r($bdjGp$walletconnectclient1), $70d67bf1bab7f4f3$var$c = $70d67bf1bab7f4f3$var$r($bdjGp$react), $70d67bf1bab7f4f3$var$d = $70d67bf1bab7f4f3$var$r($bdjGp$reactdom), $70d67bf1bab7f4f3$var$s = $70d67bf1bab7f4f3$var$r($bdjGp$algosdk1);
-/*! *****************************************************************************
-Copyright (c) Microsoft Corporation.
-
-Permission to use, copy, modify, and/or distribute this software for any
-purpose with or without fee is hereby granted.
-
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
-AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
-LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
-OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
-PERFORMANCE OF THIS SOFTWARE.
-***************************************************************************** */ function $70d67bf1bab7f4f3$var$p(e, n, t, a) {
+function $70d67bf1bab7f4f3$var$p(e, n, t, a) {
     return new (t || (t = Promise))(function(o, l) {
         function r(e) {
             try {
@@ -1327,23 +1312,23 @@ function $70d67bf1bab7f4f3$var$f(e, n) {
         o.type = "text/css", "top" === t && a.firstChild ? a.insertBefore(o, a.firstChild) : a.appendChild(o), o.styleSheet ? o.styleSheet.cssText = e : o.appendChild(document.createTextNode(e));
     }
 }
-$70d67bf1bab7f4f3$var$f('@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");\n.pera-wallet-connect-modal {\n  --pera-wallet-connect-modal-font-family: "Inter", sans-serif;\n  position: fixed;\n  top: 0;\n  right: 0;\n  left: 0;\n  bottom: 0;\n  z-index: 10;\n  width: 100vw;\n  height: 100vh;\n  background-color: rgba(0, 0, 0, 0.3);\n  font-family: var(--pera-wallet-connect-modal-font-family);\n  font-smooth: antialiased;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n}\n.pera-wallet-connect-modal * {\n  box-sizing: border-box;\n}\n.pera-wallet-connect-modal li {\n  list-style-type: none;\n  margin: 0;\n  padding: 0;\n}\n\n.pera-wallet-connect-button {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: auto;\n  height: 48px;\n  padding: 14px;\n  border: none;\n  border-radius: 12px;\n  outline: none;\n  cursor: pointer;\n  font-family: var(--pera-wallet-connect-modal-font-family);\n  font-size: 14px;\n}\n\n.pera-wallet-connect-modal__logo img {\n  display: block;\n  width: 32px;\n}\n\n.pera-wallet-connect-modal__close-button {\n  width: 40px;\n  height: 40px;\n  margin: 0;\n  padding: 0;\n  background: #333333;\n  border: 1.5px solid rgba(255, 255, 255, 0.08);\n  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);\n  border-radius: 100%;\n}\n\n.pera-wallet-connect-modal__body {\n  position: relative;\n  top: 50%;\n  left: 50%;\n  width: 655px;\n  max-width: calc(100vw - 80px);\n  padding: 28px;\n  background-color: #edeffb;\n  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.08);\n  border-radius: 24px;\n  animation: 0.3s PeraWalletConnectSlideIn ease-out;\n  transform: translate(-50%, -50%);\n}\n.pera-wallet-connect-modal__body::before {\n  --background-line: #1e0972 0 1.2px, transparent 0 calc(100% - 1.2px), #1e0972;\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  z-index: -1;\n  content: "";\n  background-image: linear-gradient(var(--background-line)), linear-gradient(90deg, var(--background-line));\n  background-size: 116px 116px;\n  mix-blend-mode: overlay;\n  border-radius: 24px;\n  opacity: 0.8;\n  pointer-events: none;\n}\n\n.pera-wallet-connect-modal__body__header {\n  display: flex;\n  align-items: center;\n  justify-content: flex-end;\n  position: absolute;\n  top: -44px;\n  right: -44px;\n  left: 0;\n}\n\n@media (max-width: 767px) {\n  .pera-wallet-connect-modal__body {\n    top: 40px;\n    bottom: 0;\n    left: 0;\n    width: 100%;\n    max-width: unset;\n    height: calc(100 * var(--vh));\n    padding: 20px;\n    background-color: #ffffff;\n    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02), 0 4px 12px rgba(0, 0, 0, 0.03);\n    border-radius: 20px 20px 0px 0px;\n    animation: 0.3s PeraWalletConnectMobileSlideIn ease-out;\n    overflow-y: auto;\n    transform: unset;\n  }\n  .pera-wallet-connect-modal__body::before {\n    background-image: unset;\n  }\n\n  .pera-wallet-connect-modal__body__header {\n    display: flex;\n    align-items: center;\n    justify-content: flex-end;\n    position: static;\n  }\n\n  .pera-wallet-connect-modal__close-button {\n    width: 24px;\n    height: 24px;\n    margin: 0;\n    padding: 0;\n    background: transparent;\n    border: unset;\n    box-shadow: unset;\n  }\n}\n@keyframes PeraWalletConnectSlideIn {\n  0% {\n    opacity: 0;\n    transform: translate(-50%, calc(-50% + 24px));\n  }\n  100% {\n    opacity: 1;\n    transform: translate(-50%, -50%);\n  }\n}\n@keyframes PeraWalletConnectMobileSlideIn {\n  0% {\n    top: 30%;\n    opacity: 0;\n  }\n  100% {\n    top: 40px;\n    opacity: 1;\n  }\n}');
+$70d67bf1bab7f4f3$var$f('@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");\n.pera-wallet-connect-modal {\n  --pera-wallet-connect-modal-font-family: "Inter", sans-serif;\n  position: fixed;\n  top: 0;\n  right: 0;\n  left: 0;\n  bottom: 0;\n  z-index: 10;\n  width: 100vw;\n  height: 100vh;\n  background-color: rgba(0, 0, 0, 0.3);\n  font-family: var(--pera-wallet-connect-modal-font-family);\n  font-smooth: antialiased;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n}\n.pera-wallet-connect-modal * {\n  box-sizing: border-box;\n}\n.pera-wallet-connect-modal li {\n  list-style-type: none;\n  margin: 0;\n  padding: 0;\n}\n\n.pera-wallet-connect-button {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: auto;\n  height: 48px;\n  padding: 14px;\n  border: none;\n  border-radius: 12px;\n  outline: none;\n  cursor: pointer;\n  font-family: var(--pera-wallet-connect-modal-font-family);\n  font-size: 14px;\n}\n\n.pera-wallet-connect-modal__logo img {\n  display: block;\n  width: 32px;\n}\n\n.pera-wallet-connect-modal__close-button {\n  width: 40px;\n  height: 40px;\n  margin: 0;\n  padding: 0;\n  background: #333333;\n  border: 1.5px solid rgba(255, 255, 255, 0.08);\n  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);\n  border-radius: 100%;\n}\n\n.pera-wallet-connect-modal__body {\n  position: relative;\n  top: 50%;\n  left: 50%;\n  width: 655px;\n  max-width: calc(100vw - 80px);\n  padding: 28px;\n  background-color: #edeffb;\n  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.08);\n  border-radius: 24px;\n  animation: 0.3s PeraWalletConnectSlideIn ease-out;\n  transform: translate(-50%, -50%);\n}\n.pera-wallet-connect-modal__body::before {\n  --background-line: #1e0972 0 1.2px, transparent 0 calc(100% - 1.2px), #1e0972;\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  z-index: -1;\n  content: "";\n  background-image: linear-gradient(var(--background-line)), linear-gradient(90deg, var(--background-line));\n  background-size: 116px 116px;\n  mix-blend-mode: overlay;\n  border-radius: 24px;\n  opacity: 0.8;\n  pointer-events: none;\n}\n\n.pera-wallet-connect-modal__body__header {\n  display: flex;\n  align-items: center;\n  justify-content: flex-end;\n  position: absolute;\n  top: -44px;\n  right: -44px;\n  left: 0;\n}\n\n@media (max-width: 767px) {\n  .pera-wallet-connect-modal__body {\n    top: 40px;\n    bottom: 0;\n    left: 0;\n    width: 100%;\n    max-width: unset;\n    height: calc(100 * var(--vh));\n    padding: 20px;\n    background-color: #ffffff;\n    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02), 0 4px 12px rgba(0, 0, 0, 0.03);\n    border-radius: 20px 20px 0px 0px;\n    animation: 0.3s PeraWalletConnectMobileSlideIn ease-out;\n    overflow-y: auto;\n    transform: unset;\n  }\n  .pera-wallet-connect-modal__body::before {\n    background-image: unset;\n  }\n  .pera-wallet-connect-modal__body__header {\n    display: flex;\n    align-items: center;\n    justify-content: flex-end;\n    position: static;\n  }\n  .pera-wallet-connect-modal__close-button {\n    width: 24px;\n    height: 24px;\n    margin: 0;\n    padding: 0;\n    background: transparent;\n    border: unset;\n    box-shadow: unset;\n  }\n}\n@keyframes PeraWalletConnectSlideIn {\n  0% {\n    opacity: 0;\n    transform: translate(-50%, calc(-50% + 24px));\n  }\n  100% {\n    opacity: 1;\n    transform: translate(-50%, -50%);\n  }\n}\n@keyframes PeraWalletConnectMobileSlideIn {\n  0% {\n    top: 30%;\n    opacity: 0;\n  }\n  100% {\n    top: 40px;\n    opacity: 1;\n  }\n}');
 const $70d67bf1bab7f4f3$var$u = {
     SMALL: "(max-width: 767px)"
 };
 function $70d67bf1bab7f4f3$var$g() {
     return function(e) {
-        const n = "matchMedia" in window, [a, o] = $bdjGp$react.useState(n && Boolean(window.matchMedia(e).matches));
+        const t = "matchMedia" in window, [a, o] = $bdjGp$react.useState(t && Boolean(window.matchMedia(e).matches));
         return $bdjGp$react.useEffect(()=>{
-            let t, a;
-            return n && (t = window.matchMedia(e), a = function() {
-                o(Boolean(t.matches));
-            }, t && t.addListener(a)), ()=>{
-                n && a && t && t.removeListener(a);
+            let n, a;
+            return t && (n = window.matchMedia(e), a = function() {
+                o(Boolean(n.matches));
+            }, n && n.addListener(a)), ()=>{
+                t && a && n && n.removeListener(a);
             };
         }, [
             e,
-            n
+            t
         ]), a;
     }($70d67bf1bab7f4f3$var$u.SMALL);
 }
@@ -1417,7 +1402,7 @@ function $70d67bf1bab7f4f3$var$M() {
         className: "pera-wallet-connect-modal-information-section__features-item__description"
     }, "View NFTs, buy and swap crypto and more"))));
 }
-$70d67bf1bab7f4f3$var$f(".pera-wallet-connect-modal-information-section {\n  padding: 12px;\n  padding-right: 0;\n}\n\n.pera-wallet-connect-modal-information-section__pera-icon {\n  margin-bottom: 32px;\n}\n\n.pera-wallet-connect-modal-information-section__title {\n  margin-bottom: 82px;\n  color: #2c3559;\n  font-size: 22px;\n  line-height: 30px;\n  letter-spacing: -0.4px;\n  font-weight: 500;\n}\n\n.pera-wallet-connect-modal-information-section__secondary-title {\n  margin-bottom: 16px;\n  color: #69708d;\n  font-size: 10px;\n  line-height: 20px;\n  letter-spacing: 2px;\n  font-weight: 500;\n  text-transform: uppercase;\n}\n\n.pera-wallet-connect-modal-information-section__features-item {\n  display: grid;\n  align-items: center;\n  grid-template-columns: 36px auto;\n  gap: 16px;\n}\n.pera-wallet-connect-modal-information-section__features-item:not(:last-of-type) {\n  margin-bottom: 20px;\n}\n\n.pera-wallet-connect-modal-information-section__features-item__icon-wrapper {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 36px;\n  height: 36px;\n  background-color: #ffffff;\n  border-radius: 50%;\n}\n\n.pera-wallet-connect-modal-information-section__features-item__description {\n  color: #2c3559;\n  font-size: 12px;\n  line-height: 20px;\n  letter-spacing: 0.01px;\n  font-weight: 500;\n}\n\n@media (max-width: 767px) {\n  .pera-wallet-connect-modal-information-section__information-section {\n    padding: 0;\n  }\n\n  .pera-wallet-connect-modal-information-section__pera-icon {\n    margin-bottom: 16px;\n  }\n\n  .pera-wallet-connect-modal-information-section__connect-pera-title {\n    margin-bottom: 8px;\n    color: #2c3559;\n    font-size: 18px;\n    font-weight: 600;\n    line-height: 22px;\n    letter-spacing: -0.2px;\n  }\n\n  .pera-wallet-connect-modal-information-section__title {\n    margin-bottom: 40px;\n    color: #2c3559;\n    font-size: 14px;\n    line-height: 24px;\n    letter-spacing: -0.09px;\n    font-weight: 400;\n  }\n\n  .pera-wallet-connect-modal-information-section__features-item__icon-wrapper {\n    background-color: #f2f3f8;\n  }\n\n  .pera-wallet-connect-modal-information-section__features-item__description {\n    color: #69708d;\n  }\n}");
+$70d67bf1bab7f4f3$var$f(".pera-wallet-connect-modal-information-section {\n  padding: 12px;\n  padding-right: 0;\n}\n\n.pera-wallet-connect-modal-information-section__pera-icon {\n  margin-bottom: 32px;\n}\n\n.pera-wallet-connect-modal-information-section__title {\n  margin-bottom: 82px;\n  color: #2c3559;\n  font-size: 22px;\n  line-height: 30px;\n  letter-spacing: -0.4px;\n  font-weight: 500;\n}\n\n.pera-wallet-connect-modal-information-section__secondary-title {\n  margin-bottom: 16px;\n  color: #69708d;\n  font-size: 10px;\n  line-height: 20px;\n  letter-spacing: 2px;\n  font-weight: 500;\n  text-transform: uppercase;\n}\n\n.pera-wallet-connect-modal-information-section__features-item {\n  display: grid;\n  align-items: center;\n  grid-template-columns: 36px auto;\n  gap: 16px;\n}\n.pera-wallet-connect-modal-information-section__features-item:not(:last-of-type) {\n  margin-bottom: 20px;\n}\n\n.pera-wallet-connect-modal-information-section__features-item__icon-wrapper {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 36px;\n  height: 36px;\n  background-color: #ffffff;\n  border-radius: 50%;\n}\n\n.pera-wallet-connect-modal-information-section__features-item__description {\n  color: #2c3559;\n  font-size: 12px;\n  line-height: 20px;\n  letter-spacing: 0.01px;\n  font-weight: 500;\n}\n\n@media (max-width: 767px) {\n  .pera-wallet-connect-modal-information-section__information-section {\n    padding: 0;\n  }\n  .pera-wallet-connect-modal-information-section__pera-icon {\n    margin-bottom: 16px;\n  }\n  .pera-wallet-connect-modal-information-section__connect-pera-title {\n    margin-bottom: 8px;\n    color: #2c3559;\n    font-size: 18px;\n    font-weight: 600;\n    line-height: 22px;\n    letter-spacing: -0.2px;\n  }\n  .pera-wallet-connect-modal-information-section__title {\n    margin-bottom: 40px;\n    color: #2c3559;\n    font-size: 14px;\n    line-height: 24px;\n    letter-spacing: -0.09px;\n    font-weight: 400;\n  }\n  .pera-wallet-connect-modal-information-section__features-item__icon-wrapper {\n    background-color: #f2f3f8;\n  }\n  .pera-wallet-connect-modal-information-section__features-item__description {\n    color: #69708d;\n  }\n}");
 function $70d67bf1bab7f4f3$var$N({ onClose: e  }) {
     const { logo: n , name: t  } = $70d67bf1bab7f4f3$var$y();
     return $70d67bf1bab7f4f3$var$c.default.createElement($70d67bf1bab7f4f3$var$c.default.Fragment, null, $70d67bf1bab7f4f3$var$c.default.createElement("div", {
@@ -1435,10 +1420,10 @@ function $70d67bf1bab7f4f3$var$N({ onClose: e  }) {
     }, "Cancel"));
 }
 function $70d67bf1bab7f4f3$var$L({ uri: e  }) {
-    const [n, a] = $bdjGp$react.useState("default"), { name: o  } = $70d67bf1bab7f4f3$var$y();
+    const [t, a] = $bdjGp$react.useState("default"), { name: o  } = $70d67bf1bab7f4f3$var$y();
     return $70d67bf1bab7f4f3$var$c.default.createElement("div", {
-        className: "pera-wallet-connect-modal-touch-screen-mode " + ("launching-app" === n ? "pera-wallet-connect-modal-touch-screen-mode--pending-message-view" : "")
-    }, "launching-app" === n ? $70d67bf1bab7f4f3$var$c.default.createElement($70d67bf1bab7f4f3$var$N, {
+        className: "pera-wallet-connect-modal-touch-screen-mode " + ("launching-app" === t ? "pera-wallet-connect-modal-touch-screen-mode--pending-message-view" : "")
+    }, "launching-app" === t ? $70d67bf1bab7f4f3$var$c.default.createElement($70d67bf1bab7f4f3$var$N, {
         onClose: l
     }) : $70d67bf1bab7f4f3$var$c.default.createElement($70d67bf1bab7f4f3$var$c.default.Fragment, null, $70d67bf1bab7f4f3$var$c.default.createElement($70d67bf1bab7f4f3$var$M, null), $70d67bf1bab7f4f3$var$c.default.createElement("div", null, $70d67bf1bab7f4f3$var$c.default.createElement("a", {
         onClick: l,
@@ -1457,7 +1442,7 @@ function $70d67bf1bab7f4f3$var$L({ uri: e  }) {
         target: "_blank"
     }, `Install ${o}`))));
     function l() {
-        "default" === n ? a("launching-app") : "launching-app" === n && a("default");
+        "default" === t ? a("launching-app") : "launching-app" === t && a("default");
     }
 }
 $70d67bf1bab7f4f3$var$f(".pera-wallet-connect-modal-pending-message {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex-direction: column;\n  text-align: center;\n}\n\n.pera-wallet-connect-modal-pending-message__text {\n  max-width: 271px;\n  margin-top: 20px;\n  color: #2c3559;\n  font-size: 18px;\n  font-weight: 500;\n  line-height: 28px;\n  letter-spacing: -0.26px;\n}\n\n.pera-wallet-connect-modal-pending-message__cancel-button {\n  display: block;\n  width: 100%;\n  padding: 14px;\n  color: #2c3559;\n  background-color: #f2f3f8;\n  border-radius: 12px;\n  text-decoration: none;\n  text-align: center;\n  font-size: 14px;\n  line-height: 20px;\n  letter-spacing: -0.09px;\n  font-weight: 500;\n}");
@@ -1493,18 +1478,18 @@ function $70d67bf1bab7f4f3$var$B({ data: e , onToggle: n , isActive: t  }) {
     }, a), $70d67bf1bab7f4f3$var$c.default.createElement($70d67bf1bab7f4f3$var$P, null, o));
 }
 function $70d67bf1bab7f4f3$var$I({ items: e  }) {
-    const [n, a] = $bdjGp$react.useState(0);
+    const [t, a] = $bdjGp$react.useState(0);
     return $70d67bf1bab7f4f3$var$c.default.createElement("ul", {
         className: "pera-wallet-accordion"
-    }, e.map((e, t)=>$70d67bf1bab7f4f3$var$c.default.createElement($70d67bf1bab7f4f3$var$B, {
+    }, e.map((e, n)=>$70d67bf1bab7f4f3$var$c.default.createElement($70d67bf1bab7f4f3$var$B, {
             key: e.id,
             data: e,
-            onToggle: o(t),
-            isActive: t === n
+            onToggle: o(n),
+            isActive: n === t
         })));
     function o(e) {
         return ()=>{
-            n === e && a(0), a(e);
+            t === e && a(0), a(e);
         };
     }
 }
@@ -1525,7 +1510,7 @@ function $70d67bf1bab7f4f3$var$A() {
     }
     $bdjGp$react.useEffect(()=>{
         e();
-    }, []), function(e, n = $70d67bf1bab7f4f3$var$T) {
+    }, []), function(e, t = $70d67bf1bab7f4f3$var$T) {
         const a = $bdjGp$react.useRef(void 0), o = $bdjGp$react.useRef(e);
         $bdjGp$react.useEffect(()=>{
             o.current = e;
@@ -1538,10 +1523,10 @@ function $70d67bf1bab7f4f3$var$A() {
             function e() {
                 a.current || (a.current = setTimeout(()=>{
                     o.current(), a.current = void 0;
-                }, n.debounceTime));
+                }, t.debounceTime));
             }
         }, [
-            n.debounceTime
+            t.debounceTime
         ]);
     }(()=>{
         e();
@@ -1567,7 +1552,7 @@ function $70d67bf1bab7f4f3$var$z({ uri: e , onClose: n  }) {
     })));
 }
 function $70d67bf1bab7f4f3$var$H({ onClose: e  }) {
-    const { name: n , main_color: a  } = $70d67bf1bab7f4f3$var$y();
+    const { name: t , main_color: a  } = $70d67bf1bab7f4f3$var$y();
     return $70d67bf1bab7f4f3$var$A(), $bdjGp$react.useEffect(()=>{
         const n = window.open($70d67bf1bab7f4f3$var$E());
         n && n.addEventListener("load", e);
@@ -1602,7 +1587,7 @@ function $70d67bf1bab7f4f3$var$H({ onClose: e  }) {
         href: $70d67bf1bab7f4f3$var$E(),
         rel: "noopener noreferrer",
         target: "_blank"
-    }, `Launch ${n}`))));
+    }, `Launch ${t}`))));
     function o() {
         e();
     }
@@ -1761,18 +1746,18 @@ window.global = window, window.Buffer = window.Buffer || $bdjGp$Buffer, $70d67bf
             this.connector = null;
         }), localStorage.removeItem($70d67bf1bab7f4f3$var$_), localStorage.removeItem($70d67bf1bab7f4f3$var$C), localStorage.removeItem($70d67bf1bab7f4f3$var$x), n;
     }
-    signTransaction(e, t) {
+    signTransaction(e, n) {
         if (!this.connector) throw new Error("PeraWalletConnect was not initialized correctly.");
-        const a = e.flatMap((e)=>e.map((e)=>{
-                let n;
-                t && !(e.signers || []).includes(t) && (n = []);
+        const t = e.flatMap((e)=>e.map((e)=>{
+                let t;
+                n && !(e.signers || []).includes(n) && (t = []);
                 const a = {
                     txn: (o = e.txn, $70d67bf1bab7f4f3$require$Buffer.from($70d67bf1bab7f4f3$var$s.default.encodeUnsignedTransaction(o)).toString("base64"))
                 };
                 var o;
-                return Array.isArray(n) && (a.signers = n), a;
-            })), o = $bdjGp$formatJsonRpcRequest1("algo_signTxn", [
-            a
+                return Array.isArray(t) && (a.signers = t), a;
+            })), a = $bdjGp$formatJsonRpcRequest("algo_signTxn", [
+            t
         ]);
         return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) && function() {
             const e = $70d67bf1bab7f4f3$var$W("pera-wallet-redirect-modal-wrapper");
@@ -1781,7 +1766,7 @@ window.global = window, window.Buffer = window.Buffer || $bdjGp$Buffer, $70d67bf
                     $70d67bf1bab7f4f3$var$j("pera-wallet-redirect-modal-wrapper");
                 }
             }), e);
-        }(), this.connector.sendCustomRequest(o).then((e)=>{
+        }(), this.connector.sendCustomRequest(a).then((e)=>{
             const n = e.filter(Boolean);
             return "string" == typeof n[0] ? n.map($70d67bf1bab7f4f3$var$$) : n.map((e)=>Uint8Array.from(e));
         }).catch((e)=>Promise.reject(new $70d67bf1bab7f4f3$var$m({
@@ -1790,6 +1775,7 @@ window.global = window, window.Buffer = window.Buffer || $bdjGp$Buffer, $70d67bf
             }, e.message || "Failed to sign transaction"))).finally(()=>$70d67bf1bab7f4f3$var$j("pera-wallet-redirect-modal-wrapper"));
     }
 };
+
 
 
 

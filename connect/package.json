@@ -34,9 +34,10 @@
   },
   "bundleDependencies": false,
   "dependencies": {
-    "@json-rpc-tools/utils": "^1.7.6",
     "@walletconnect/client": "^1.7.7",
+    "@walletconnect/jsonrpc-utils": "^1.0.4",
     "buffer": "^6.0.3",
+    "postcss": "^8.4.20",
     "react-qrcode-logo": "^2.7.0"
   },
   "deprecated": false,
@@ -77,6 +78,7 @@
   },
   "scripts": {
     "build": "npm run eslint && ./node_modules/.bin/rollup -c",
+    "build-windows": ".\\node_modules\\.bin\\rollup -c",
     "dev": "rollup -c -w",
     "eslint": "eslint --ext .jsx,.js,.tsx,.ts src/"
   },

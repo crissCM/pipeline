@@ -18,7 +18,7 @@ export default [
       "@walletconnect/client",
       "@hipo/react-ui-toolkit",
       "react-qrcode-logo",
-      "@json-rpc-tools/utils/dist/cjs/format",
+      "@walletconnect/jsonrpc-utils",
       "algosdk"
     ],
     plugins: [

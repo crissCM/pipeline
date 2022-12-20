@@ -1,7 +1,6 @@
 import MyAlgo from "@randlabs/myalgo-connect";
 import WalletConnect from "@walletconnect/client";
 import QRCodeModal from "algorand-walletconnect-qrcode-modal";
-import { formatJsonRpcRequest } from "@json-rpc-tools/utils";
 import createAsaTxn from "./createAsaTxn.js";
 import {
   getAppIndex,
@@ -21,6 +20,7 @@ import PipeWallet from "./pwallet";
 import Escrow from "./escrow";
 //in order to solve undiagnosed "missing parenthetical" error, PeraWallet cannot be installed via there instructions. In order to integrate PeraWallet, prior to building Pipeline, in terminal run: cd connect && npm install
 import { PeraWalletConnect } from "./connect";
+import { formatJsonRpcRequest } from "@walletconnect/jsonrpc-utils";
 
 export { PipeWallet, sendTxns, Escrow };
 
