@@ -1333,14 +1333,14 @@ function $70d67bf1bab7f4f3$var$g() {
 }
 $70d67bf1bab7f4f3$var$f(".pera-wallet-connect-modal-touch-screen-mode {\n  display: grid;\n  grid-template-columns: 1fr;\n  gap: 46px;\n  padding: 4px;\n}\n.pera-wallet-connect-modal-touch-screen-mode--pending-message-view {\n  gap: 56px;\n  grid-template-rows: auto 48px;\n  height: 100%;\n  padding-bottom: 70px;\n}\n\n.pera-wallet-connect-modal-touch-screen-mode__launch-pera-wallet-button,\n.pera-wallet-connect-modal-touch-screen-mode__install-pera-wallet-button {\n  display: block;\n  padding: 14px;\n  border-radius: 12px;\n  text-decoration: none;\n  text-align: center;\n  font-size: 14px;\n  line-height: 20px;\n  letter-spacing: -0.09px;\n  font-weight: 500;\n}\n\n.pera-wallet-connect-modal-touch-screen-mode__launch-pera-wallet-button {\n  margin-bottom: 32px;\n  background-color: #6b46fe;\n  color: #ffffff;\n}\n\n.pera-wallet-connect-modal-touch-screen-mode__install-pera-wallet-button {\n  margin-bottom: 20px;\n  background-color: #f2f3f8;\n  color: #2c3559;\n}\n\n.pera-wallet-connect-modal-touch-screen-mode__new-to-pera-box {\n  position: relative;\n  margin-bottom: 32px;\n  border-top: 1px solid #e6e8ee;\n}\n\n.pera-wallet-connect-modal-touch-screen-mode__new-to-pera-box__text {\n  position: absolute;\n  top: -12px;\n  right: calc(50% - 56px);\n  width: 116px;\n  color: #69708d;\n  background-color: #ffffff;\n  font-size: 13px;\n  font-weight: 500;\n  line-height: 24px;\n  letter-spacing: -0.04px;\n  text-align: center;\n}");
 function $70d67bf1bab7f4f3$var$h() {
-    return /Android/i.test(navigator.userAgent);
+    return navigator && /Android/i.test(navigator.userAgent);
 }
-const $70d67bf1bab7f4f3$var$w = $70d67bf1bab7f4f3$var$h() ? "algorand://" : "algorand-wc://", $70d67bf1bab7f4f3$var$C = "PeraWallet.Wallet", $70d67bf1bab7f4f3$var$x = "PeraWallet.BridgeURL", $70d67bf1bab7f4f3$var$_ = "walletconnect", $70d67bf1bab7f4f3$var$b = "PeraWallet.DeepLink", $70d67bf1bab7f4f3$var$v = "PeraWallet.AppMeta";
+const $70d67bf1bab7f4f3$var$w = $70d67bf1bab7f4f3$var$h() ? "algorand://" : "algorand-wc://", $70d67bf1bab7f4f3$var$C = "PeraWallet.Wallet", $70d67bf1bab7f4f3$var$x = "PeraWallet.BridgeURL", $70d67bf1bab7f4f3$var$_ = "walletconnect", $70d67bf1bab7f4f3$var$v = "PeraWallet.DeepLink", $70d67bf1bab7f4f3$var$b = "PeraWallet.AppMeta";
 function $70d67bf1bab7f4f3$var$E() {
-    return localStorage.getItem($70d67bf1bab7f4f3$var$b) || $70d67bf1bab7f4f3$var$w;
+    return localStorage.getItem($70d67bf1bab7f4f3$var$v) || $70d67bf1bab7f4f3$var$w;
 }
 function $70d67bf1bab7f4f3$var$y() {
-    const e = localStorage.getItem($70d67bf1bab7f4f3$var$v);
+    const e = localStorage.getItem($70d67bf1bab7f4f3$var$b);
     return e ? JSON.parse(e) : {
         logo: "data:image/svg+xml,%3csvg width='32' height='35' viewBox='0 0 32 35' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M18.2837 5.09271C19.0234 8.12325 18.7827 10.7913 17.7463 11.0519C16.7098 11.3126 15.27 9.06712 14.5304 6.03657C13.7908 3.00603 14.0315 0.337996 15.0679 0.0773547C16.1044 -0.183287 17.5441 2.06216 18.2837 5.09271Z' fill='%232C3559'/%3e%3cpath d='M30.376 7.66915C28.7507 5.95537 25.5271 6.42918 23.1759 8.72745C20.8247 11.0257 20.2361 14.2781 21.8614 15.9919C23.4866 17.7057 26.7102 17.2319 29.0614 14.9336C31.4127 12.6354 32.0012 9.38294 30.376 7.66915Z' fill='%232C3559'/%3e%3cpath d='M17.5511 34.0071C18.5876 33.7465 18.7914 30.9276 18.0064 27.711C17.2214 24.4945 15.7448 22.0982 14.7084 22.3589C13.6719 22.6195 13.4681 25.4383 14.2531 28.6549C15.0381 31.8715 16.5147 34.2677 17.5511 34.0071Z' fill='%232C3559'/%3e%3cpath d='M6.91617 9.3015C9.9105 10.1763 12.1008 11.7187 11.8083 12.7466C11.5158 13.7745 8.85126 13.8986 5.85693 13.0239C2.8626 12.1491 0.672334 10.6067 0.964835 9.57881C1.25734 8.5509 3.92184 8.42674 6.91617 9.3015Z' fill='%232C3559'/%3e%3cpath d='M26.3656 20.8508C29.5437 21.7793 31.883 23.3652 31.5905 24.3932C31.298 25.4211 28.4845 25.5017 25.3063 24.5732C22.1282 23.6448 19.7889 22.0588 20.0814 21.0309C20.3739 20.003 23.1874 19.9224 26.3656 20.8508Z' fill='%232C3559'/%3e%3cpath d='M10.3069 18.7365C9.56299 17.9692 7.13209 19.0948 4.87736 21.2506C2.62264 23.4064 1.39791 25.776 2.14185 26.5432C2.8858 27.3105 5.3167 26.1849 7.57143 24.0291C9.82615 21.8733 11.0509 19.5037 10.3069 18.7365Z' fill='%232C3559'/%3e%3c/svg%3e",
         name: "Pera Wallet",
@@ -1349,12 +1349,14 @@ function $70d67bf1bab7f4f3$var$y() {
 }
 function $70d67bf1bab7f4f3$var$k(e) {
     let n = $70d67bf1bab7f4f3$var$E();
-    /iPhone|iPad|iPod/i.test(navigator.userAgent) && !n.includes("-wc") && (n = n.replace("://", "-wc://"));
+    navigator && /iPhone|iPad|iPod/i.test(navigator.userAgent) && !n.includes("-wc") && (n = n.replace("://", "-wc://"));
     let t = `${n}wc?uri=${encodeURIComponent(e)}`;
     const a = function() {
-        const { userAgent: e  } = navigator;
-        let n;
-        return n = e.match(/chrome|chromium|crios/i) ? "chrome" : e.match(/firefox|fxios/i) ? "firefox" : e.match(/safari/i) ? "safari" : e.match(/opr\//i) ? "opera" : e.match(/edg/i) ? "edge" : void 0, navigator.brave && (n = "brave"), n;
+        if (navigator) {
+            const { userAgent: e  } = navigator;
+            let n;
+            return n = e.match(/chrome|chromium|crios/i) ? "chrome" : e.match(/firefox|fxios/i) ? "firefox" : e.match(/safari/i) ? "safari" : e.match(/opr\//i) ? "opera" : e.match(/edg/i) ? "edge" : void 0, navigator.brave && (n = "brave"), n;
+        }
     }();
     return $70d67bf1bab7f4f3$var$h() && (t = e), a && (t = `${t}&browser=${a}`), t;
 }
@@ -1684,7 +1686,7 @@ function $70d67bf1bab7f4f3$var$D(e) {
 
 window.global = window, window.Buffer = window.Buffer || $bdjGp$Buffer, $70d67bf1bab7f4f3$exports.PeraWalletConnect = class {
     constructor(e){
-        this.bridge = (null == e ? void 0 : e.bridge) || localStorage.getItem($70d67bf1bab7f4f3$var$x) || "", (null == e ? void 0 : e.deep_link) && localStorage.setItem($70d67bf1bab7f4f3$var$b, e.deep_link), (null == e ? void 0 : e.app_meta) && localStorage.setItem($70d67bf1bab7f4f3$var$v, JSON.stringify(e.app_meta)), this.connector = null;
+        this.bridge = (null == e ? void 0 : e.bridge) || localStorage.getItem($70d67bf1bab7f4f3$var$x) || "", (null == e ? void 0 : e.deep_link) && localStorage.setItem($70d67bf1bab7f4f3$var$v, e.deep_link), (null == e ? void 0 : e.app_meta) && localStorage.setItem($70d67bf1bab7f4f3$var$b, JSON.stringify(e.app_meta)), this.connector = null;
     }
     connect() {
         return new Promise((e, n)=>$70d67bf1bab7f4f3$var$p(this, void 0, void 0, function*() {
@@ -1758,7 +1760,7 @@ window.global = window, window.Buffer = window.Buffer || $bdjGp$Buffer, $70d67bf
             })), a = $bdjGp$formatJsonRpcRequest("algo_signTxn", [
             t
         ]);
-        return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) && function() {
+        return navigator && /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) && function() {
             const e = $70d67bf1bab7f4f3$var$W("pera-wallet-redirect-modal-wrapper");
             $70d67bf1bab7f4f3$var$d.default.render($70d67bf1bab7f4f3$var$c.default.createElement($70d67bf1bab7f4f3$var$H, {
                 onClose: function() {
