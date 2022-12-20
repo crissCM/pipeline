@@ -244,7 +244,7 @@ export default class PipeWallet {
 
     let blob = new Blob([data], { type: "text/plain;charset=utf-8" });
     // if navigator is present, download file immediatly
-    if (window?.navigator?.msSaveOrOpenBlob) {
+    if (typeof window !== "undefined" && window?.navigator?.msSaveOrOpenBlob) {
       window.navigator.msSaveBlob(blob, "PipeWallet.txt");
     }
   }

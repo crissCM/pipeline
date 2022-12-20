@@ -1,18 +1,18 @@
 type BrowserName = "chrome" | "firefox" | "opera" | "safari" | "edge" | "brave";
 
 function isAndroid() {
-  return window?.navigator?.userAgent && /Android/i.test(window.navigator.userAgent);
+  return typeof window !== "undefined" && /Android/i.test(window.navigator.userAgent);
 }
 
 function isIOS() {
   return (
-    window?.navigator?.userAgent && /iPhone|iPad|iPod/i.test(window.navigator.userAgent)
+    typeof window !== "undefined" && /iPhone|iPad|iPod/i.test(window.navigator.userAgent)
   );
 }
 
 function isMobile() {
   return (
-    window?.navigator?.userAgent &&
+    typeof window !== "undefined" &&
     /iPhone|iPad|iPod|Android/i.test(window.navigator.userAgent)
   );
 }
@@ -22,7 +22,7 @@ function isMobile() {
  * @returns {BrowserName} Browser name
  */
 function detectBrowser() {
-  if (window?.navigator) {
+  if (typeof window !== "undefined") {
     const {userAgent} = window.navigator;
     let browserName: BrowserName | undefined;
 

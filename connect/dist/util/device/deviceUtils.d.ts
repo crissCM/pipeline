@@ -1,7 +1,7 @@
 declare type BrowserName = "chrome" | "firefox" | "opera" | "safari" | "edge" | "brave";
-declare function isAndroid(): boolean | "";
-declare function isIOS(): boolean | "";
-declare function isMobile(): boolean | "";
+declare function isAndroid(): boolean;
+declare function isIOS(): boolean;
+declare function isMobile(): boolean;
 /**
  * Detects the browser name
  * @returns {BrowserName} Browser name
