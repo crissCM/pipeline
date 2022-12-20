@@ -3,9 +3,7 @@ import Encrypt from "encrypt-with-password";
 import Pipeline from "./index";
 import pipeWalletStyle from "./pwalletCss.js";
 import html from "./pwalletHTML.js";
-import pkg from "file-saver";
-
-const { saveAs: $bdjGp$saveAs } = pkg;
+import { saveAs } from "file-saver-es";
 
 function pipeModalScript() {
   var modal = document.getElementById("pipeWalletModal");
