@@ -18,16 +18,15 @@ import {
 } from "./utils.js";
 import "regenerator-runtime";
 import PipeWallet from "./pwallet";
-import Escrow from "./escrow"
+import Escrow from "./escrow";
 //in order to solve undiagnosed "missing parenthetical" error, PeraWallet cannot be installed via there instructions. In order to integrate PeraWallet, prior to building Pipeline, in terminal run: cd connect && npm install
-import {PeraWalletConnect} from './connect'
+import { PeraWalletConnect } from "./connect";
 
-export { PipeWallet, sendTxns, Escrow }
-
+export { PipeWallet, sendTxns, Escrow };
 
 //Note: this class is a work in progress. May be unstable. Roll back to version 1.2.7 if issues encountered
 
-export default class Pipeline{
+export default class Pipeline {
   static alerts = true;
   static EnableDeveloperAPI = false;
   static indexer = "http://localhost:8980";
@@ -48,11 +47,13 @@ export default class Pipeline{
     qrcodeModal: QRCodeModal,
   });
 
-  static init = () => {return new MyAlgo} //backwards compatibility 
+  static init = () => {
+    return new MyAlgo();
+  }; //backwards compatibility
 
   static wallet = new MyAlgo();
 
-  static PeraWallet = new PeraWalletConnect()
+  static PeraWallet = new PeraWalletConnect();
 
   static async balance(address) {
     let indexerURL = configIndexer(this.main, this.EnableDeveloperAPI, this);
@@ -77,7 +78,7 @@ export default class Pipeline{
     try {
       let data = await fetch(url2);
       let data2 = await data.json();
-      return data2
+      return data2;
     } catch (error) {
       console.log(error);
       return error;
@@ -98,28 +99,27 @@ export default class Pipeline{
         break;
       case "PeraWallet":
         try {
-          const peraAccounts = await this.PeraWallet.reconnectSession()
+          const peraAccounts = await this.PeraWallet.reconnectSession();
 
           if (peraAccounts.length > 0) {
             this.PeraWallet.connector?.on("disconnect", function () {
-              Pipeline.PeraWallet.disconnect()
-              Pipeline.address = ""
-            })
-            this.address = peraAccounts[0]
+              Pipeline.PeraWallet.disconnect();
+              Pipeline.address = "";
+            });
+            this.address = peraAccounts[0];
+          } else {
           }
-          else {}
-        }
-          catch(error){
-            let newAccounts = await this.PeraWallet.connect()
-            // Setup the disconnect event listener
-            this.PeraWallet.connector?.on("disconnect", function () {
-              Pipeline.PeraWallet.disconnect()
-              Pipeline.address = ""
-            })
+        } catch (error) {
+          let newAccounts = await this.PeraWallet.connect();
+          // Setup the disconnect event listener
+          this.PeraWallet.connector?.on("disconnect", function () {
+            Pipeline.PeraWallet.disconnect();
+            Pipeline.address = "";
+          });
 
-            this.address = newAccounts[0];
-          }
-        
+          this.address = newAccounts[0];
+        }
+
         break;
       case "WalletConnect":
         this.connector.on("disconnect", (error, payload) => {
@@ -199,31 +199,30 @@ export default class Pipeline{
         });
         return txnsb;
       }
-    } 
-
-    else {
+    } else {
       if (this.pipeConnector === "PeraWallet") {
-        if (!group){
-          signedTxn = await this.PeraWallet.signTransaction([[{txn: mytxnb,signers:[Pipeline.address]}]]);
+        if (!group) {
+          signedTxn = await this.PeraWallet.signTransaction([
+            [{ txn: mytxnb, signers: [Pipeline.address] }],
+          ]);
           return signedTxn[0];
-        }
-        else{
-          let index = 0
-          let groupToSign = []
+        } else {
+          let index = 0;
+          let groupToSign = [];
           mytxnb.forEach((txn) => {
-            groupToSign.push([{ txn: txn, signers: [signed[index] || Pipeline.address] }])
-            index++
-          })
-        signedTxn = await this.PeraWallet.signTransaction(groupToSign)
-        let txnsb = [];
-        signedTxn.forEach((item) => {
-          txnsb.push(item)
-        })
-        return txnsb
+            groupToSign.push([
+              { txn: txn, signers: [signed[index] || Pipeline.address] },
+            ]);
+            index++;
+          });
+          signedTxn = await this.PeraWallet.signTransaction(groupToSign);
+          let txnsb = [];
+          signedTxn.forEach((item) => {
+            txnsb.push(item);
+          });
+          return txnsb;
         }
-
-      }
-      else {
+      } else {
         if (this.pipeConnector === "PipeWallet") {
           PipeWallet.openWallet();
           PipeWallet.previewTxn(mytxnb);
@@ -320,10 +319,9 @@ export default class Pipeline{
             }
           });
 
-          let nestedArray = []
+          let nestedArray = [];
 
           if (group && signed.length !== 0) {
-
             for (let i = 0; i < signed.length; i++) {
               if (signed[i] !== Pipeline.address) {
                 txnsToSign[i].signers = [];
@@ -331,7 +329,7 @@ export default class Pipeline{
             }
           }
 
-          let requestParams = [txnsToSign]
+          let requestParams = [txnsToSign];
           console.log("TXNs to Sign:");
           console.log(requestParams);
 
@@ -345,14 +343,14 @@ export default class Pipeline{
             try {
               let result = await this.connector.sendCustomRequest(request);
 
-              console.log("Response from walletconnect: ", result)
+              console.log("Response from walletconnect: ", result);
 
               let binarySignedTxs = await result.map((tx) => {
-
                 if (tx !== null) {
                   return new Uint8Array(Buffer.from(tx, "base64"));
+                } else {
+                  return tx;
                 }
-                else { return tx }
               });
               return !group ? binarySignedTxs[0] : binarySignedTxs;
             } catch (error) {
@@ -362,13 +360,14 @@ export default class Pipeline{
             try {
               let result = await AlgoSigner.signTxn(requestParams);
 
-              console.log("Response from AlgoSigner: ", result)
+              console.log("Response from AlgoSigner: ", result);
 
               let binarySignedTxs = await result.map((tx) => {
                 if (tx !== null) {
                   return new Uint8Array(Buffer.from(tx.blob, "base64"));
+                } else {
+                  return tx;
                 }
-                else { return tx }
               });
               return !group ? binarySignedTxs[0] : binarySignedTxs;
             } catch (error) {
@@ -822,12 +821,11 @@ export default class Pipeline{
     let data = await readGlobalState(this.main, appId, this);
     return data;
   }
-
 }
 
-window.pipeline = Pipeline
-window.PipeWallet = PipeWallet
-window.pipeEscrow = Escrow
+window.pipeline = Pipeline;
+window.PipeWallet = PipeWallet;
+window.pipeEscrow = Escrow;
 /* usage
 
 update balance at intervals:
