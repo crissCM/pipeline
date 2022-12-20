@@ -1,15 +1,20 @@
 type BrowserName = "chrome" | "firefox" | "opera" | "safari" | "edge" | "brave";
 
 function isAndroid() {
-  return navigator && /Android/i.test(navigator.userAgent);
+  return window?.navigator?.userAgent && /Android/i.test(window.navigator.userAgent);
 }
 
 function isIOS() {
-  return navigator && /iPhone|iPad|iPod/i.test(navigator.userAgent);
+  return (
+    window?.navigator?.userAgent && /iPhone|iPad|iPod/i.test(window.navigator.userAgent)
+  );
 }
 
 function isMobile() {
-  return navigator && /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  return (
+    window?.navigator?.userAgent &&
+    /iPhone|iPad|iPod|Android/i.test(window.navigator.userAgent)
+  );
 }
 
 /**
@@ -17,8 +22,8 @@ function isMobile() {
  * @returns {BrowserName} Browser name
  */
 function detectBrowser() {
-  if (navigator) {
-    const {userAgent} = navigator;
+  if (window?.navigator) {
+    const {userAgent} = window.navigator;
     let browserName: BrowserName | undefined;
 
     if (userAgent.match(/chrome|chromium|crios/i)) {
@@ -36,7 +41,7 @@ function detectBrowser() {
     }
 
     // @ts-ignore brave object exists on Brave
-    if (navigator.brave) {
+    if (window.navigator.brave) {
       browserName = "brave";
     }
     return browserName;
