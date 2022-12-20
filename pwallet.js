@@ -3,7 +3,6 @@ import Encrypt from "encrypt-with-password";
 import Pipeline from "./index";
 import pipeWalletStyle from "./pwalletCss.js";
 import html from "./pwalletHTML.js";
-import { saveAs } from "file-saver-es";
 
 function pipeModalScript() {
   var modal = document.getElementById("pipeWalletModal");
@@ -244,7 +243,10 @@ export default class PipeWallet {
     let data = localStorage.getItem("PipeWallet");
 
     let blob = new Blob([data], { type: "text/plain;charset=utf-8" });
-    saveAs(blob, "PipeWallet.txt");
+    // if navigator is present, download file immediatly
+    if (window?.navigator?.msSaveOrOpenBlob) {
+      window.navigator.msSaveBlob(blob, "PipeWallet.txt");
+    }
   }
 
   static showHide(show = [], hide = []) {

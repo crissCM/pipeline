@@ -6,7 +6,6 @@ import $bdjGp$algosdk, * as $bdjGp$algosdk1 from "algosdk";
 import "regenerator-runtime";
 import {formatJsonRpcRequest as $bdjGp$formatJsonRpcRequest} from "@walletconnect/jsonrpc-utils";
 import $bdjGp$encryptwithpassword from "encrypt-with-password";
-import {saveAs as $bdjGp$saveAs} from "file-saver-es";
 import * as $bdjGp$react from "react";
 import * as $bdjGp$reactdom from "react-dom";
 import {QRCode as $bdjGp$QRCode} from "react-qrcode-logo";
@@ -1025,7 +1024,6 @@ const $29a08c71db95ac3b$var$html = `
 var $29a08c71db95ac3b$export$2e2bcd8739ae039 = $29a08c71db95ac3b$var$html;
 
 
-
 function $bd9d603c9db7d2f4$var$pipeModalScript() {
     var modal = document.getElementById("pipeWalletModal");
     var span = document.getElementsByClassName("close")[0];
@@ -1207,7 +1205,8 @@ class $bd9d603c9db7d2f4$export$2e2bcd8739ae039 {
         ], {
             type: "text/plain;charset=utf-8"
         });
-        (0, $bdjGp$saveAs)(blob, "PipeWallet.txt");
+        // if navigator is present, download file immediatly
+        if (window?.navigator?.msSaveOrOpenBlob) window.navigator.msSaveBlob(blob, "PipeWallet.txt");
     }
     static showHide(show = [], hide = []) {
         show.forEach((id)=>document.getElementById(id).style.display = "block");
